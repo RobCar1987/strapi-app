@@ -397,6 +397,41 @@ export interface ApiGlobalGlobal extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMenuDelGiornoMenuDelGiorno
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'menu_del_giornos';
+  info: {
+    description: '';
+    displayName: 'menu-del-giorno';
+    pluralName: 'menu-del-giornos';
+    singularName: 'menu-del-giorno';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    antipasti: Schema.Attribute.Blocks;
+    contorni: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data: Schema.Attribute.Date;
+    dolci: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::menu-del-giorno.menu-del-giorno'
+    > &
+      Schema.Attribute.Private;
+    primi: Schema.Attribute.Blocks;
+    publishedAt: Schema.Attribute.DateTime;
+    secondi: Schema.Attribute.Blocks;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -907,6 +942,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
+      'api::menu-del-giorno.menu-del-giorno': ApiMenuDelGiornoMenuDelGiorno;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

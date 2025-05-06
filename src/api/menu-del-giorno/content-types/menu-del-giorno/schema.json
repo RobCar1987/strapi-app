@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_del_giornos",
+  "info": {
+    "singularName": "menu-del-giorno",
+    "pluralName": "menu-del-giornos",
+    "displayName": "menu-del-giorno",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "data": {
+      "type": "date"
+    },
+    "antipasti": {
+      "type": "blocks"
+    },
+    "primi": {
+      "type": "blocks"
+    },
+    "secondi": {
+      "type": "blocks"
+    },
+    "contorni": {
+      "type": "blocks"
+    },
+    "dolci": {
+      "type": "blocks"
+    }
+  }
+}
