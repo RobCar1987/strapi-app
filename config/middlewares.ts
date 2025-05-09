@@ -5,9 +5,12 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:5173','https://www.agriturmalgola.com/'], // o '*' per tutti (solo in sviluppo)
+      origin: [
+        'http://localhost:5173', // URL del frontend in sviluppo
+        'https://www.agriturmalgola.com/', // URL del tuo sito in produzione
+      ],
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
-      headers: ['Content-Type', 'Authorization'],
+      allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
       credentials: true,
     },
   },
